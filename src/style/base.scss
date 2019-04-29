@@ -1,0 +1,119 @@
+.clearfix:after {
+    content:'';
+    display: table;
+    width: 100%;
+    clear: both;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+    transition: all .2s;
+}
+
+//variables
+$phone_upper: 600px;
+$tablet_portrait_upper: 900px;
+$tablet_landscape_upper: 1200px;
+$desktop_upper: 1800px;
+
+//screens
+.main_screen {
+	display: flex;
+	width: 100vw;
+	height: 100vh;
+}
+
+//containers
+.main_container-horizontal {
+	display: flex;
+	flex-direction: row;
+	margin: 0 auto;
+}
+
+.main_container-vertical {
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+}
+
+//elements
+img {
+	width: 100%;
+	max-width: 100%;
+}
+
+
+//mixins
+@mixin SetBackground($mode, $arg) {
+	@if ($mode == solid)
+	{
+		background: $arg;
+	}
+	@else if ($mode == picture)
+	{
+		background: $arg  center 100% no-repeat;
+		background-size: cover;
+	}
+}
+
+@mixin SetFlexVariables($justify_content: flex-start, $align_items: flex-start)
+{
+	justify-content: $justify_content;
+	align-items: $align_items;
+}
+
+@mixin SetPaddings($up: 0, $down: 0, $right: 0, $left: 0) {
+	padding-top: $up;
+	padding-bottom: $down;
+	padding-right: $right;
+	padding-left: $left;
+}
+
+@mixin SetMargins($up: 0, $down: 0, $right: 0, $left: 0) {
+	margin-top: $up;
+	margin-bottom: $down;
+	margin-right: $right;
+	margin-left: $left;
+}
+
+@mixin SetWidth-relative ($width, $mode: desktop_up) {
+	@if($mode == phone_only) {
+		width: $width/$phone_upper * 1vw;
+	}
+	@else if ($mode == tablet_portrait_up) {
+		width: $width/$tablet_portrait_upper * 1vw;
+	}
+	@else if ($mode == tablet_landscape_up) {
+		width: $width/$tablet_landscape_upper * 1vw;
+	}
+	@else if ($mode == desktop_up) {
+		width: $width/$desktop_upper * 1vw;
+	}
+	@else if ($mode == big_desktop_up) {
+		width: $width/$desktop_upper * 1vw;
+	}
+}
+
+@mixin for-size($range) {
+  @if ($range == phone_only) {
+    @media (max-width: $phone_upper - 1) { @content; }
+  }
+  @else if ($range == tablet_portrait_up) {
+    @media (min-width: $phone_upper) { @content; }
+  }
+  @else if ($range == tablet_landscape_up) {
+    @media (min-width: $tablet_portrait_upper) { @content; }
+  }
+  @else if ($range == desktop_up) {
+    @media (min-width: $tablet_landscape_upper) { @content; }
+  }
+  @else if ($range == big_desktop_up) {
+    @media (min-width: $desktop_upper) { @content; }
+  }
+}
+
+//functions
