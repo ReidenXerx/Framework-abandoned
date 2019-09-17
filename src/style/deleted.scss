@@ -1,0 +1,33 @@
+//		width: calc(#{$scaler * $width/$big_desktop} * 100vw + #{(1 - $scaler) * $width/1080} * 100vmin);
+
+//@mixin SetWidth-responsive ($width, $min-width: 0, $mode: _desktop-middle) {
+//	$phone-small: 360;//galaxy note 3 (360 x 640)
+//	$phone-big: 414;//iphone XR (414 x 896)
+//	$tablet-small: 600;//nexus 7 (600 x 960)
+//	$tablet-middle: 768;//ipad 768 x 1024
+//	$tablet-big: 1024;//ipad 1024 x 768
+//	$desktop-small: 1366;//1366 x 900
+//	$desktop-middle: 1920;//1920 x 1080
+//
+//	@if($mode == _phone-small) {
+//		width: calc(#{($width - $min-width)/$phone-small} * 100vw + #{$min-width * 1px});
+//	}
+//	@else if ($mode == _phone-big) {
+//		width: calc(#{($width - $min-width)/$phone-big} * 100vw + #{$min-width * 1px});
+//	}
+//	@else if ($mode == _tablet-small) {
+//		width: calc(#{($width - $min-width)/$tablet-small} * 100vw + #{$min-width * 1px});
+//	}
+//	@else if ($mode == _tablet-middle) {
+//		width: calc(#{($width - $min-width)/$tablet-middle} * 100vw + #{$min-width * 1px});
+//	}
+//	@else if ($mode == _tablet-big) {
+//		width: calc(#{($width - $min-width)/$tablet-big} * 100vw + #{$min-width * 1px});
+//	}
+//	@else if ($mode == _desktop-small) {
+//		width: calc(#{($width - $min-width)/$desktop-small} * 100vw + #{$min-width * 1px});
+//	}
+//	@else if ($mode == _desktop-middle) {
+//		width: calc(#{($width - $min-width)/$desktop-middle} * 100vw + #{$min-width * 1px});
+//	}
+//}

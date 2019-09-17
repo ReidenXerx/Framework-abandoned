@@ -1,0 +1,17 @@
+//-calculates
+
+@function RelativeUnits($object, $scaler, $mode, $orientation) {
+	
+	@if ($orientation == vertical) {
+		@return calc(#{$scaler * $object/GetDeviceScreen($mode, $orientation)} * 100vh + #{(1 - $scaler) * $object * 1px});
+	}
+	@else if ($orientation == horizontal) {
+		@return calc(#{$scaler * $object/GetDeviceScreen($mode, $orientation)} * 100vw + #{(1 - $scaler) * $object * 1px});	
+	}
+}
+
+//-Gets
+
+@function GetDeviceScreen($mode, $orientation) {
+	@return map-get($devices, "" + $mode + "-" + $orientation);
+}

@@ -1,6 +1,42 @@
+html {
+	    font-family: 'Montserrat', sans-serif;
+}
+
 .main_screen {
 	@include SetBackground(solid, rgba(42, 42, 46, 1));
+	
 	.main_container-vertical {
-		width: 10px;
+		@include SetWidth-responsive(1580);
+
+		.main_title {
+			@include SetFlexJustify(space-between);
+			@include SetFlexAlign(center);
+			@include SetPaddings(vertical, 330, 300, 0.8);
+
+			.main_logo {
+				@include SetWidth-responsive(715);
+			}
+
+			h1 {
+				@include SetFontLineSize(0.3, 0.63, 0.07, 48, 14);
+				@include SetFontVars(bold, 0.1, white, uppercase);
+
+				.blue {
+					@include SetFontLineSize(0.1, 0.8, 0.1, 84, 14);
+					@include SetFontVars(bold, 0.1, rgba(0, 159, 228, 1), uppercase);
+				}
+			}
+
+		@include _tablet-small {
+			@include ToVertical();
+			@include SetFlexJustify(space-between);
+			@include SetFlexAlign(center);
+			@include SetTextAlign(center);
+		}
+
+
+		}
+
 	}
+
 }
