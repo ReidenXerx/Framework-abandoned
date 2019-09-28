@@ -51,7 +51,7 @@
 }
 
 @mixin ToVertical () {
-	
+
 	flex-direction: column;
 }
 
@@ -79,7 +79,7 @@
 }
 
 @mixin SetFontVars($font-weight, $letter-spacing, $color, $text-transform: inherit, $text-align: inherit) {
-	
+
 	font-weight: $font-weight;
 	letter-spacing: $letter-spacing * 1em;
 	color: $color;
@@ -88,7 +88,7 @@
 }
 
 @mixin SetTextAlign($text-align: inherit) {
-	
+
 	text-align: $text-align;
 }
 
@@ -102,7 +102,7 @@
 
 	$vw-font: ($vw-scaler * $font-size)/GetDeviceScreen($mode, horizontal);
 	$vw-line: ($vw-scaler * ($font-size + $line-height))/GetDeviceScreen($mode, horizontal);
-	
+
 	font-size: calc(#{$rem-font} * 1rem + #{$vmin-font} * 100vmin + #{$vw-font} * 100vw);
 	line-height: calc(#{$rem-line} * 1rem + #{$vmin-line} * 100vmin + #{$vw-line} * 100vw);
 }
@@ -123,11 +123,11 @@
 	}
 }
 
-@mixin SetPaddings ($up: 0, $down: 0, $right: 0, $left: 0) {
+@mixin SetPaddings ($up: 0, $down: 0, $left: 0, $right: 0) {
 	padding-top: $up;
 	padding-bottom: $down;
-	padding-right: $right;
 	padding-left: $left;
+	padding-right: $right;
 }
 
 @mixin SetWidth-static ($width) {
@@ -168,6 +168,66 @@
 	width: RelativeUnits($width, $scaler, $mode, horizontal);
 }
 
+@mixin Grid-area ($name) {
+
+  grid-area: $name;
+}
+
+@mixin SetGridVariables($count_columns, $count_rows, $width, $areas, $list_areas) {
+
+  $count_columns-real;
+
+  @for $i_1 from 1 through $count_rows {
+
+    @for $i_2 from 1 through $count_rows {
+
+      $sub-index: 1;
+
+      @while GetSubElementList($list_areas, $i_2, $sub-index) != null {
+
+        
+        $sub-index = $sub-index + 1;
+      }
+    }
+  }
+}
+
+/*
+
+
+        @if($control_sum > $width) {
+          @debug "you are idiot";
+        }
+        @else {
+
+          @if(GetSubElementList($list_areas, $i_2, $sub-index) != $temp) {
+            $control_sum = $control_sum + GetSubElementList($list_areas, $i_2, $sub-index);
+          }
+
+          $temp: GetSubElementList($list_areas, $i_2, $sub-index);
+        }
+
+@while nth($map_element, $sub-index)!=null {
+
+  grid-template-columns: repeat($count_columns, 1fr);
+  grid-template-rows: auto;
+  $a1: "first";
+  $a2: "second";
+  $a3: "third";
+
+  $first: '"first second second"';
+  $second: '"first second second"';
+  $third: '"third third third"';
+  $var: $first + $second + $third;
+  @debug $var;
+
+  $first2: $a1 + " " + $a2 + " " + $a2;
+  @debug Shit($first2);
+
+  grid-template-areas:
+    #{$var};
+    */
+
 //padding-top: calc(#{$scaler * $up/$phone-small} * 100vh + #{(1 - $scaler) * $up * 1px});
 //padding-bottom: calc(#{$scaler * $down}/$phone-small} * 100vh + #{(1 - $scaler) * $down * 1px});
 
@@ -177,7 +237,7 @@
 @mixin TransformXY ($OffsetX, $OffsetY, $scaler: 1, $mode: desktop-middle) {
 
 	transform: translate(RelativeUnits(horizontal, $OffsetX, $scaler, $mode), RelativeUnits(vertical, $OffsetY, $scaler, $mode));
-	-moz-transform: translate(RelativeUnits(horizontal, $OffsetX, $scaler, $mode), RelativeUnits(vertical, $OffsetY, $scaler, $mode)); /* Firefox 3.5+ */ 
+	-moz-transform: translate(RelativeUnits(horizontal, $OffsetX, $scaler, $mode), RelativeUnits(vertical, $OffsetY, $scaler, $mode)); /* Firefox 3.5+ */
 	-webkit-transform: translate(RelativeUnits(horizontal, $OffsetX, $scaler, $mode), RelativeUnits(vertical, $OffsetY, $scaler, $mode)); /* Safari 3.1+ и Chrome 2.0+ */
 	-o-transform: translate(RelativeUnits(horizontal, $OffsetX, $scaler, $mode), RelativeUnits(vertical, $OffsetY, $scaler, $mode)); /* Opera 10.5+ */
 	-ms-transform: translate(RelativeUnits(horizontal, $OffsetX, $scaler, $mode), RelativeUnits(vertical, $OffsetY, $scaler, $mode)); /* IE 9.0 */
@@ -185,7 +245,7 @@
 
 @mixin TransformScale ($ScaleX: 1, $ScaleY: 1) {
 	transform: scale($ScaleX, $ScaleY);
-	-moz-transform: scale($ScaleX, $ScaleY); /* Firefox 3.5+ */ 
+	-moz-transform: scale($ScaleX, $ScaleY); /* Firefox 3.5+ */
 	-webkit-transform: scale($ScaleX, $ScaleY); /* Safari 3.1+ и Chrome 2.0+ */
 	-o-transform: scale($ScaleX, $ScaleY); /* Opera 10.5+ */
 	-ms-transform: scale($ScaleX, $ScaleY); /* IE 9.0 */
@@ -193,7 +253,7 @@
 
 @mixin TransformRotate ($Rotate) {
 	transform: rotate($Rotate);
-	-moz-transform: rotate($Rotate); /* Firefox 3.5+ */ 
+	-moz-transform: rotate($Rotate); /* Firefox 3.5+ */
 	-webkit-transform: rotate($Rotate); /* Safari 3.1+ и Chrome 2.0+ */
 	-o-transform: rotate($Rotate); /* Opera 10.5+ */
 	-ms-transform: rotate($Rotate); /* IE 9.0 */

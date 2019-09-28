@@ -1,17 +1,39 @@
 //-calculates
 
 @function RelativeUnits($object, $scaler, $mode, $orientation) {
-	
+
 	@if ($orientation == vertical) {
 		@return calc(#{$scaler * $object/GetDeviceScreen($mode, $orientation)} * 100vh + #{(1 - $scaler) * $object * 1px});
 	}
 	@else if ($orientation == horizontal) {
-		@return calc(#{$scaler * $object/GetDeviceScreen($mode, $orientation)} * 100vw + #{(1 - $scaler) * $object * 1px});	
+		@return calc(#{$scaler * $object/GetDeviceScreen($mode, $orientation)} * 100vw + #{(1 - $scaler) * $object * 1px});
 	}
+}
+
+@function IdioticFunction($string) {
+  @return '"#{$string}"';
 }
 
 //-Gets
 
 @function GetDeviceScreen($mode, $orientation) {
 	@return map-get($devices, "" + $mode + "-" + $orientation);
+}
+
+@function GetSubElementList($list, $element, $sub-element) {
+	$i-element: 1;
+	@each $list_element in $list {
+		@if ($i-element == $element) {
+			@return nth($list_element, $sub-element);
+		}
+		$i-element: $i-element + 1;
+	}
+}
+
+@function GetCountElementsList($list) {
+	$i-element: 1;
+	@each $list_element in $map {
+		$i-element: $i-element + 1;
+	}
+	@return $i-element;
 }

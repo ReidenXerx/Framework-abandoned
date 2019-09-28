@@ -46,6 +46,16 @@
 	margin: 0 auto;
 }
 
+.main_container-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "first first first"
+    "first second second"
+    "third third third";
+}
+
 
 //-elements
 img {
@@ -64,11 +74,11 @@ html {
 
 .button	{
 	cursor: pointer;
-	
+
 }
 
 .button:hover {
-	
+
 }
 
 //functions
