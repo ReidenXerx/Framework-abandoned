@@ -31,3 +31,58 @@
 //		width: calc(#{($width - $min-width)/$desktop-middle} * 100vw + #{$min-width * 1px});
 //	}
 //}
+
+$map: ("first" 500px 1 4) ("second" 200px 2 3 5 6) ("third" 100px 7 8 9)
+
+/*
+
+@debug $list_rows;
+@debug $indexer-row;
+@debug nth($list_rows, $indexer-row);
+@debug $current_row-areas;
+@debug $indexer-area;
+@debug length($current_row-areas);
+@debug nth($current_row-areas, $indexer-area);
+
+
+        @if($control_sum > $width) {
+          @debug "you are idiot";
+        }
+        @else {
+
+          @if(GetSubElementList($list_areas, $i_2, $sub-index) != $temp) {
+            $control_sum = $control_sum + GetSubElementList($list_areas, $i_2, $sub-index);
+          }
+
+          $temp: GetSubElementList($list_areas, $i_2, $sub-index);
+        }
+
+@while nth($map_element, $sub-index)!=null {
+
+  grid-template-columns: repeat($count_columns, 1fr);
+  grid-template-rows: auto;
+  $a1: "first";
+  $a2: "second";
+  $a3: "third";
+
+  $first: '"first second second"';
+  $second: '"first second second"';
+  $third: '"third third third"';
+  $var: $first + $second + $third;
+  @debug $var;
+
+  $first2: $a1 + " " + $a2 + " " + $a2;
+  @debug Shit($first2);
+
+  grid-template-areas:
+    #{$var};
+    */
+
+//padding-top: calc(#{$scaler * $up/$phone-small} * 100vh + #{(1 - $scaler) * $up * 1px});
+//padding-bottom: calc(#{$scaler * $down}/$phone-small} * 100vh + #{(1 - $scaler) * $down * 1px});
+grid-template-columns: 1fr 1fr 1fr;
+grid-template-rows: auto;
+grid-template-areas:
+  "first first first"
+  "first second second"
+  "third third third";

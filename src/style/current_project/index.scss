@@ -42,15 +42,10 @@ html {
 .main_container-grid {
 
 	@include SetWidth-responsive(1580);
-	@include SetGridVariables(3, 3, 1580,
+	@include SmartGrid(1500,
 
-		$areas: (
-		"first": 500px,
-		"second": 200px,
-		"third": 100px,
-		),
-		$list_areas: ("first" "first" "first") ("first" "second" "third") ("third" "third" "third")
-		//целесообразнее всего добавить указание к каждой области на каждой строке ширину в список 
+		$LIST-rows: ("first": 120, "five": 320) ("first": 350, "second": 611, "third": 345) ("four": 345)
+		//$LIST-intel_stretching: ("first": false, "second": true, "third": true, "four": true)
 	);
 
 	.first {
@@ -64,7 +59,12 @@ html {
 	.third {
 		grid-area: third;
 	}
-}
 
-/*
-$map: ("first" 500px 1 4) ("second" 200px 2 3 5 6) ("third" 100px 7 8 9)
+	.four {
+		grid-area: four;
+	}
+
+	.five {
+		grid-area: five;
+	}
+}

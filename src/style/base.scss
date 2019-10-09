@@ -48,12 +48,8 @@
 
 .main_container-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto;
-  grid-template-areas:
-    "first first first"
-    "first second second"
-    "third third third";
+
+
 }
 
 
