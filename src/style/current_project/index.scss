@@ -2,6 +2,8 @@ html {
 	    font-family: 'Montserrat', sans-serif;
 }
 
+@include RadioCheck(nipple, 20, 5, rgba(0, 259, 328, 1), "inset 0px 2px 2px rgba(0, 0, 0, .3)", 10);
+
 .main_screen {
 	@include SetBackground(solid, rgba(42, 42, 46, 1));
 
@@ -45,7 +47,6 @@ html {
 	@include SmartGrid(1500,
 
 		$LIST-rows: ("first": 120, "five": 320) ("first": 350, "second": 611, "third": 345) ("four": 345)
-		//$LIST-intel_stretching: ("first": false, "second": true, "third": true, "four": true)
 	);
 
 	.first {

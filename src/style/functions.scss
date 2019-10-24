@@ -28,7 +28,7 @@
 	$gcf: 1;
 	$gcf-maybe: 1;
 
-	@while $gcf-maybe <= List_GetMin($list) {
+	@while $gcf-maybe <= LIST_GetMin($list) {
 
 		$rest: 0;
 		@for $indexer from 1 through length($list) {
@@ -68,7 +68,7 @@
 			$LIST-result: append($LIST-result, map-get($list_element, $name));
 		}
 	}
-	$result: List_GetMin($LIST-result);
+	$result: LIST_GetMin($LIST-result);
 	@return $result;
 }
 

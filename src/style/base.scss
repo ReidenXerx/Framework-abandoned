@@ -25,6 +25,10 @@
 	border: 0;
 }
 
+input[type=radio], input[type=checkbox] {
+    display:none;
+}
+
 //-screens
 .main_screen {
 	display: flex;
